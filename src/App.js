@@ -22,7 +22,6 @@ const App = ({ _listAllFilm }) => {
         store.dispatch({ type: REPLACE_LISTALLFILM, value: response });
         setListAllFilm(response);
         setListFilm(response);
-        // console.log(_listAllFilm.listAllFilm);
       })
       .catch((error) => { console.error(error) });
   }, []);

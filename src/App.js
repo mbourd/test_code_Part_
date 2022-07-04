@@ -55,11 +55,7 @@ const App = ({ _listAllFilm }) => {
           <Row>
             <Col>
               {/* Pagination component */}
-              <Pagination
-                listItem={listFilm}
-                listItemToDisplay={listItemToDisplay}
-                setListItemToDisplay={setListItemToDisplay}
-              />
+              <Pagination />
             </Col>
           </Row>
         </Container>

@@ -1,14 +1,16 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Row, Col, Button } from "react-bootstrap";
+import { ContextApp } from "../../App";
 import FormSelectPaginationSize from "../Forms/FormSelectPaginationSize.component";
 
-const Pagination = ({
-  listItem,
-  listItemToDisplay,
-  setListItemToDisplay
-}) => {
+const Pagination = ({ }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [paginationSize, setPaginationSize] = useState(4);
+
+  const contextApp = useContext(ContextApp);
+
+  let listItem = contextApp.listFilm;
+  let setListItemToDisplay = contextApp.setListItemToDisplay;
 
   useEffect(() => {
     paginate(null, 1);

@@ -1,16 +1,19 @@
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { Col, Row, Button, Form } from "react-bootstrap";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { service } from "../..";
 import { connect } from "react-redux";
+import { ContextApp } from "../../App";
 
-const FormSelectCategory = ({
-  listAllFilm,
-  setListFilm
-}) => {
+const FormSelectCategory = ({ }) => {
   const [listCategory, setListCategory] = useState([]);
   const [currentCategory, setCurrentCategory] = useState("all");
+
+  const contextApp = useContext(ContextApp);
+
+  let listAllFilm = contextApp.listAllFilm;
+  let setListFilm = contextApp.setListFilm;
 
   useEffect(() => {
     service.film.getAllCategory()

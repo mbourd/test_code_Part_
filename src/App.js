@@ -12,7 +12,7 @@ import { REPLACE_LISTALLFILM } from './store/actionType';
 export const ContextApp = createContext();
 
 const App = ({
-  _listAllFilm // Liste de tout les films sauvegarder dans le store
+  _listAllFilm // Liste des films sauvegardés dans le store
 }) => {
   const [listFilm, setListFilm] = useState([]); // Liste des films qui sont utilisés par exemple lors du choix de la catégorie
   const [listItemToDisplay, setListItemToDisplay] = useState([]); // Liste des films qui sont affichés, lors de la pagination

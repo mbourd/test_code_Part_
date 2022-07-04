@@ -1,9 +1,7 @@
 import { combineReducers } from "redux";
 import { REPLACE_LISTALLFILM } from "./actionType";
 
-const initialStateListAllFilm = {
-  listAllFilm: []
-}
+const initialStateListAllFilm = [];
 
 const listAllFilmReducer = (state = initialStateListAllFilm, action) => {
   switch (action.type) {

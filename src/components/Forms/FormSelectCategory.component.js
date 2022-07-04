@@ -6,13 +6,13 @@ import { service } from "../..";
 import { connect } from "react-redux";
 import { ContextApp } from "../../App";
 
-const FormSelectCategory = ({ }) => {
+const FormSelectCategory = ({ _listAllFilm }) => {
   const [listCategory, setListCategory] = useState([]);
   const [currentCategory, setCurrentCategory] = useState("all");
 
   const contextApp = useContext(ContextApp);
 
-  let listAllFilm = contextApp.listAllFilm;
+  let listAllFilm = _listAllFilm;
   let setListFilm = contextApp.setListFilm;
 
   useEffect(() => {

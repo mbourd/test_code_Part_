@@ -11,23 +11,23 @@ import { REPLACE_LISTALLFILM } from './store/actionType';
 
 export const ContextApp = createContext();
 
-const App = ({ _listAllFilm }) => {
-  const [listAllFilm, setListAllFilm] = useState([]);
-  const [listFilm, setListFilm] = useState([]);
-  const [listItemToDisplay, setListItemToDisplay] = useState([]);
+const App = ({
+  _listAllFilm // Liste de tout les films sauvegarder dans le store
+}) => {
+  const [listFilm, setListFilm] = useState([]); // Liste des films qui sont utilisés par exemple lors du choix de la catégorie
+  const [listItemToDisplay, setListItemToDisplay] = useState([]); // Liste des films qui sont affichés, lors de la pagination
 
   useEffect(() => {
     service.film.getAll()
       .then((response) => {
         store.dispatch({ type: REPLACE_LISTALLFILM, value: response });
-        setListAllFilm(response);
         setListFilm(response);
       })
       .catch((error) => { console.error(error) });
   }, []);
 
   return (
-    <ContextApp.Provider value={{listAllFilm, setListAllFilm, listFilm, setListFilm, listItemToDisplay, setListItemToDisplay}}>
+    <ContextApp.Provider value={{listFilm, setListFilm, listItemToDisplay, setListItemToDisplay}}>
       <div className="App">
         <Container>
           <Row>

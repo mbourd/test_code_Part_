@@ -5,6 +5,8 @@ import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons'
 import styleFilm from "./Film.css"
 import { connect } from "react-redux";
 import { ContextApp } from "../../App";
+import { REPLACE_LISTALLFILM } from "../../store/actionType";
+import { store } from "../..";
 
 const Film = ({
   _listAllFilm,
@@ -14,15 +16,14 @@ const Film = ({
 
   const contextApp = useContext(ContextApp);
 
-  let listAllFilm = contextApp.listAllFilm;
-  let setListAllFilm = contextApp.setListAllFilm;
+  let listAllFilm = _listAllFilm;
   let listFilm = contextApp.listFilm;
   let setListFilm = contextApp.setListFilm;
   let listItemToDisplay = contextApp.listItemToDisplay;
   let setListItemToDisplay = contextApp.setListItemToDisplay;
 
   const deleteCard = () => {
-    setListAllFilm(v => listAllFilm.filter(item => item.id !== filmData.id))
+    store.dispatch({ type: REPLACE_LISTALLFILM, value: listAllFilm.filter(item => item.id !== filmData.id) });
     setListFilm(v => listFilm.filter(item => item.id !== filmData.id))
     setListItemToDisplay(v => listItemToDisplay.filter((item, i) => item.id !== filmData.id))
   }
@@ -48,7 +49,7 @@ const Film = ({
 
       return 1;
     });
-    setListAllFilm(d);
+    store.dispatch({ type: REPLACE_LISTALLFILM, value: d });
   }
   const addDislike = () => {
     if (filmData.hasOwnProperty("isDisabledLikeBtn")
@@ -71,7 +72,7 @@ const Film = ({
 
       return 1;
     });
-    setListAllFilm(d);
+    store.dispatch({ type: REPLACE_LISTALLFILM, value: d });
   }
 
   return (

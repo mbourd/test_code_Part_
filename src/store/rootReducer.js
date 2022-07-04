@@ -8,7 +8,7 @@ const initialStateListAllFilm = {
 const listAllFilmReducer = (state = initialStateListAllFilm, action) => {
   switch (action.type) {
     case (REPLACE_LISTALLFILM):
-      state.listAllFilm = action.value
+      return action.value;
       break;
 
     case ("INCREMENT_LIKE"):

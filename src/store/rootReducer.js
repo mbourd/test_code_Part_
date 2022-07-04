@@ -11,11 +11,6 @@ const listAllFilmReducer = (state = initialStateListAllFilm, action) => {
       return action.value;
       break;
 
-    case ("INCREMENT_LIKE"):
-      let film = state.listAllFilm;
-      console.log(state.listAllFilm);
-      break;
-
     default:
       break;
   }

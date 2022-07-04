@@ -1,0 +1,24 @@
+.card {
+    margin: 25px;
+}
+
+.film-card {
+    width: 250px;
+}
+
+.card .film-title {
+    font-weight: bold;
+}
+
+.film-ratio {
+    padding: 15px;
+}
+
+.film-ratio.row > * {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.film-ratio.row .progress {
+    background-color: red;
+}
